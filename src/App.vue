@@ -1,16 +1,25 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Search @search="search" msg=""/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Search from './components/Search.vue'
+import axios from 'axios'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Search
+  },
+methods:{
+  search(text){
+    axios.get("http://localhost:5000").then(data =>{
+      console.log(data);
+    })
+   console.log(text)
+   
   }
+}
 }
 </script>
 
